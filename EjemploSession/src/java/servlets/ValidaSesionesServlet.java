@@ -31,6 +31,8 @@ public class ValidaSesionesServlet extends HttpServlet {
       out.println("¿Continua la Sesion y es valida?: ");
 
       if(claveSesion.equals("AnaSan")){
+          
+         //Si es correcta se redirecciona a un home
         titulo = "llave correcta continua la sesion";
         out.println(titulo);
         response.sendRedirect("home.html");
@@ -38,6 +40,8 @@ public class ValidaSesionesServlet extends HttpServlet {
       }
       else
       {
+          
+          //Si es incorrecta se redirecciona a una página de error
         titulo = "llave incorrecta inicie nuevamente sesion";
             out.println(titulo);
             out.println("<br>");
