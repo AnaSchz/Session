@@ -25,21 +25,25 @@ public class ValidaSesionesServlet extends HttpServlet {
 
       //Pedimos el atributo, y verificamos si existe
       String claveSesion = (String) sesion.getAttribute("claveSesion");
+      
+        //Mostramos los  valores en el cliente
+      PrintWriter out = response.getWriter();
+      out.println("¿Continua la Sesion y es valida?: ");
 
-      if(claveSesion.equals("emmanueloropeza")){
+      if(claveSesion.equals("AnaSan")){
         titulo = "llave correcta continua la sesion";
+        out.println(titulo);
+        response.sendRedirect("home.html");
+        
       }
       else
       {
         titulo = "llave incorrecta inicie nuevamente sesion";
+            out.println(titulo);
+            out.println("<br>");
+            out.println("ID de la sesi&oacute;n JSESSIONID: " + sesion.getId());
+            response.sendRedirect("error.html");
       }
-
-
-      //Mostramos los  valores en el cliente
-      PrintWriter out = response.getWriter();
-      out.println("¿Continua la Sesion y es valida?: " + titulo);
-      out.println("<br>");
-      out.println("ID de la sesi&oacute;n JSESSIONID: " + sesion.getId());
   
     }
 
